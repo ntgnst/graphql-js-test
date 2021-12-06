@@ -1,0 +1,14 @@
+type User {
+  id: ID
+  firstName: String
+  book: Book
+}
+
+extend type Book @key(fields: "id") {
+  id: ID! @external
+}
+
+type Query {
+  hello: String
+  getUser: User
+}

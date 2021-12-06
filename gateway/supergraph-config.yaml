@@ -1,0 +1,9 @@
+subgraphs:
+  user:
+    routing_url: http://localhost:4000/
+    schema:
+      subgraph_url: http://localhost:4000/
+  book:
+    routing_url: http://localhost:4010/
+    schema:
+      subgraph_url: http://localhost:4010/

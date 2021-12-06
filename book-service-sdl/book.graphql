@@ -1,0 +1,10 @@
+type Book @key(fields: "id") {
+  id: ID!
+  pageCount: Int!
+  name: String!
+  price: Float!
+}
+
+type Query {
+  getBook: Book
+}

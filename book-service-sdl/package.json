@@ -1,0 +1,24 @@
+{
+  "name": "book-service-sdl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec npx babel-node index.js"
+  },
+  "dependencies": {
+    "@apollo/subgraph": "^0.1.5",
+    "apollo-server": "^3.5.0",
+    "graphql": "^15.5.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "nodemon": "^2.0.15"
+  },
+  "author": "",
+  "license": "ISC"
+}
