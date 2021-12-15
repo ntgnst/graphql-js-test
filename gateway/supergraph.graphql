@@ -18,6 +18,7 @@ directive @join__type(graph: join__Graph!, key: join__FieldSet) repeatable on IN
 type Book
   @join__owner(graph: BOOK)
   @join__type(graph: BOOK, key: "id")
+  @join__type(graph: USER, key: "id")
 {
   id: ID! @join__field(graph: BOOK)
   name: String! @join__field(graph: BOOK)
@@ -26,20 +27,15 @@ type Book
 }
 
 type Query {
-  getBook(id: String): Book @join__field(graph: BOOK)
-  getUser(id: String): User @join__field(graph: USER)
-
-  """Returns requested users with given args."""
-  hello: String @join__field(graph: BOOK)
+  getBook: Book @join__field(graph: BOOK)
+  getUser: User @join__field(graph: USER)
+  hello: String @join__field(graph: USER)
 }
 
-type User
-  @join__owner(graph: USER)
-  @join__type(graph: USER, key: "id")
-{
-  book: ID @join__field(graph: USER)
-  firstName: String @join__field(graph: USER)
-  id: ID @join__field(graph: USER)
+type User {
+  book: Book
+  firstName: String
+  id: ID
 }
 
 enum core__Purpose {
@@ -57,6 +53,6 @@ enum core__Purpose {
 scalar join__FieldSet
 
 enum join__Graph {
-  BOOK @join__graph(name: "book" url: "http://localhost:4010/")
-  USER @join__graph(name: "user" url: "http://localhost:4000/")
+  BOOK @join__graph(name: "book" url: "http://localhost:4200/")
+  USER @join__graph(name: "user" url: "http://localhost:4300/")
 }
